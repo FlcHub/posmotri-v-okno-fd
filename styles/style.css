@@ -10,8 +10,8 @@ html {
 
 .page {
   inline-size: 1200px;
-  margin: 0;
-  padding: 133px 0px;
+  block-size: 100%;
+  margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -115,28 +115,22 @@ ol {
   align-items: center;
 }
 
-.search-form__label::before {
-  content: "";
-  position: absolute;
-  display: none;
-  left: 2px;
-  width: 15px;
-  height: 15px;
-  background-color: #fff;
-}
-
 .search-form__label .search-form__pseudo-checkbox {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #fff;
   width: 19px;
   height: 19px;
   background-color: transparent;
 }
 
-.search-form__label:has(.search-form__checkbox:checked)::before {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  content: "";
   display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
 }
 
 .search-form__textfield {
@@ -184,14 +178,14 @@ ol {
 
 .search-form__label:has(.search-form__checkbox:hover) .search-form__label-text {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
 
 .title {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 75px;
-  line-height: 0.95;
+  line-height: 0.94;
   text-transform: uppercase;
   padding-bottom: 26px;
   color: #fff;
