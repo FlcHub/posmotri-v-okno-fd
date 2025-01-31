@@ -69,7 +69,8 @@ ol {
 .result__video-container {
   position: relative;
   width: 711px;
-  padding-bottom: 16px;
+  height: 386px;
+  margin-bottom: 16px;
 }
 
 .result__video {
@@ -82,13 +83,12 @@ ol {
 .content__details {
   grid-area: aside;
   width: 399px;
-  overflow: auto;
 }
 
 .search-form {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   width: inherit;
 }
 
@@ -143,21 +143,22 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.2;
+  letter-spacing: -0.008em;
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-.search-form__textfield:focus,
-.search-form__checkbox:focus {
+.search-form__textfield::placeholder {
+  color: (255 255 255 / 70%);
+}
+
+.search-form__textfield:focus {
   outline: none;
 }
 
-.search-form__label:has(
-  .search-form__textfield:focus-visible,
-  .search-form__checkbox:focus-visible
-) {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
@@ -186,7 +187,7 @@ ol {
 }
 
 .title {
-  padding-bottom: 22px;
+  padding-bottom: 20px;
   color: #fff;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
@@ -196,12 +197,12 @@ ol {
 }
 
 .content__accent {
-  opacity: 25%;
+  color: #545050;
 }
 
 .content__list-container {
   position: relative;
-  max-height: 304px;
+  height: 300px;
   padding-top: 2px;
   padding-right: 3px;
   padding-bottom: 2px;
@@ -229,6 +230,10 @@ ol {
   text-underline-offset: 1px;
 }
 
+.content__list-item {
+  display: flex;
+}
+
 .content__list-item:active {
   background-color: #545050;
 }
@@ -237,7 +242,7 @@ ol {
   outline: none;
 }
 
-.content__list-item:has(.content__card-link:focus-visible) {
+.content__card-link:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
@@ -245,9 +250,10 @@ ol {
 .content__card-link {
   color: #fff;
   text-decoration: none;
+  flex-grow: 1;
 }
 
-.content__list-item:has(.content__card-link_current) {
+.content__card-link_current {
   background-color: #545050;
 }
 
@@ -284,12 +290,12 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
-  object-fit: fill;
+  object-fit: cover;
   object-position: center;
 }
 
 .button {
-  height: 34px;
+  min-height: 34px;
   border: 1px solid #fff;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
